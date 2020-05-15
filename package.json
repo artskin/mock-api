@@ -1,0 +1,54 @@
+{
+  "name": "mock-data",
+  "version": "1.0.0",
+  "private": true,
+  "author": "Guliqiang <guliqiang@sensetime.com>",
+  "scripts": {
+    "mock": "cd mock && ts-node-dev mock-server.ts"
+  },
+  "dependencies": {
+    "@types/compression": "^1.7.0",
+    "@types/cors": "^2.8.6",
+    "@types/faker": "^4.1.10",
+    "@types/morgan": "^1.9.0",
+    "@types/node": "^13.9.0",
+    "@types/yamljs": "^0.2.30",
+    "axios": "^0.19.2",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "faker": "^4.1.0",
+    "mockjs": "^1.1.0",
+    "morgan": "^1.9.1",
+    "tslib": "^1.11.1",
+    "yamljs": "^0.3.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.2",
+    "swagger-routes-express": "^3.1.2",
+    "ts-node": "^8.6.2",
+    "ts-node-dev": "^1.0.0-pre.44",
+    "typescript": "^3.8.3"
+  },
+  "bugs": {
+    "url": "https://gitlab.sz.sensetime.com/fe/mock-data/issues"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "keywords": [
+    "typescript",
+    "admin",
+    "mock"
+  ],
+  "lint-staged": {
+    "*.{js,vue}": [
+      "vue-cli-service lint",
+      "git add"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+http://gitlab.sz.sensetime.com/fe/mock-data.git"
+  }
+}

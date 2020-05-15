@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!-- <link rel="icon" href="/favicon.ico"> -->
+    <title>mock api 调用示例</title>
+    <style>
+      .data{
+        height: 200px;
+        overflow-y: auto;
+      }
+      .green{
+        color: cadetblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{msg}}</h1>
+      
+      <h4>示例：任务列表 <button @click="getTask">获取</button></h4>
+      
+      <div class="data">
+        <ul v-for="item in taskList.tasks">
+          <li>接入源：类型 <span class="green">{{item.source.type}}</span> rtsp:<span class="green" v-if="item.source.parameter.rtsp">{{item.source.parameter.rtsp}}</span></li>
+        </ul>
+      </div>
+    </div>
+    <noscript>
+      <strong>We're sorry doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <script src="vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+      let vm = new Vue({
+        el:'#app',
+        data:{
+          msg:'hello mock api',
+          taskList:[]
+        },
+        mounted(){
+          //this.getTask()
+        },
+        methods:{
+          getTask(){
+            axios.get("http://localhost:9528/mock-api/v1/tasks",{}).then((req)=>{
+              console.log(req)
+              this.taskList = req.data
+            })
+          }
+        }
+      })
+    </script>
+  </body>
+</html>
